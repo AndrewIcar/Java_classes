@@ -46,7 +46,7 @@ public class SortWordsNumbers {
             }
             //сортировка цифр
             for(int i = 0; i<indexForNumbers.size();i++){
-                for (int k = i+1; k < indexForWords.size(); k++){
+                for (int k = i+1; k < indexForNumbers.size(); k++){
                     if(Integer.parseInt(array[indexForNumbers.get(i)]) < Integer.parseInt(array[indexForNumbers.get(k)])){
                         Integer num = Integer.parseInt(array[indexForNumbers.get(i)]);
                         array[indexForNumbers.get(i)] = array[indexForNumbers.get(k)];
