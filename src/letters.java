@@ -27,28 +27,23 @@ public class letters {
                 counting.add(0);
             }// не получается бес инициализации
 
-            // Ввод строк
+            // Ввод строк 10 строк с клавиатуры
             ArrayList<String> list = new ArrayList<String>();
             for (int i = 0; i < 10; i++) {
                 String s = reader.readLine();
                 list.add(s.toLowerCase());
             }
+
             int count = 0;
 
-
-            ArrayList<String> out = new ArrayList<String>();
-            for (int i = 0; i < 33; i++) {
-                out.add(alphabet.get(i).toString());
-            }
-
-            for(int i = 0; i<list.size(); i++){
-                for(int k = 0; k<alphabet.size();k++){
-                    for (int j = 0; j<list.get(i).length();j++){
+            for(int i = 0; i<list.size(); i++){                         //i-ое введенное слово из list,
+                for(int k = 0; k<alphabet.size();k++){                  //взяв k-ую букву алфавита,
+                    for (int j = 0; j<list.get(i).length();j++){        //пролистываем i-ый элемент list на наличие k-ой буквы, и считаем количество
                         if(alphabet.get(k) == list.get(i).charAt(j)){
                             count++;
                         }
                     }
-                    if(counting.get(k)!=0){
+                    if(counting.get(k)!=0){                             //записываем в массив counting количество найденных букв
                         count = count+counting.get(k);
                     }
                     counting.set(k, count);
@@ -56,8 +51,10 @@ public class letters {
                 }
             }
 
+            // выходной массива
+            ArrayList<String> out = new ArrayList<String>();
             for(int i = 0; i<33; i++) {
-                out.set(i, alphabet.get(i).toString() + " " + counting.get(i));
+                out.add(i, alphabet.get(i).toString() + " " + counting.get(i));
                 System.out.println(out.get(i));
             }
         }
