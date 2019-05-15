@@ -12,6 +12,7 @@ import java.util.List;
 import static java.lang.Integer.parseInt;
 import static java.lang.Math.pow;
 public class Main {
+    //crazy sh*t here, look at your own risk
     public static void main(String[] args) {
         new NoteThread().start();
         new NoteThread().start();
