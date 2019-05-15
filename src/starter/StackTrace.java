@@ -1,3 +1,5 @@
+package starter;
+
 public class StackTrace {
 
         public static void main(String[] args) throws Exception {

@@ -1,3 +1,5 @@
+package starter;
+
 import java.io.IOException;
 import java.rmi.RemoteException;
 public class checkedExceptions {

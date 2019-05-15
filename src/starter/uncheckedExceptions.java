@@ -1,3 +1,5 @@
+package starter;
+
 public class uncheckedExceptions {
     public static void main(String[] args) {
         handleExceptions(new uncheckedExceptions());
