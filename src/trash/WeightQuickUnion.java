@@ -1,4 +1,4 @@
-package beginner;
+package trash;
 
 /*
 глубина любого узла в лесе, созданном ввешенным быстрым объединением для N узлов,
@@ -11,15 +11,15 @@ public class WeightQuickUnion{
     private int[] sz;// размер компонента для корней(индексация узлами)
     private int count;// количество компонентов
 
-    public WeightQuickUnion1(int N){
+    private WeightQuickUnion(int N){
         count = N;
         id = new int[N];
         for (int i = 0; i<N; i++) id[i] = i;
         sz = new int[N];
         for (int i = 0; i<N; i++) sz[i] = i;
     }
-    public int count(){return count;}
-    public boolean connected(int p, int q){ return find(p)==find(q); }
+    private int count(){return count;}
+    private boolean connected(int p, int q){ return find(p)==find(q); }
 
     private int find(int p){
         //переходы по ссылкам до корня.
@@ -27,7 +27,7 @@ public class WeightQuickUnion{
         return p;
     }
 
-    public void union (int p, int q){
+    private void union (int p, int q){
         //приведение  p и q к общему корню
         int i = find(p);
         int j = find(q);

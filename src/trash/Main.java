@@ -1,4 +1,4 @@
-package beginner;
+package trash;
 import javax.annotation.processing.Messager;
 import java.lang.Math;
 import java.nio.Buffer;

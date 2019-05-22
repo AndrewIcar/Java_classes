@@ -1,10 +1,10 @@
-package beginner;
+package trash;
 import java.util.ArrayList;
 import java.util.List;
 
 import java.io.*;
 import java.util.ArrayList;
-public class Solution {
+/*public class Solution {
     char[] value;
     int count;
 

@@ -2,36 +2,69 @@ package beginner;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
+import java.util.*;
+
+import static java.lang.Integer.parseInt;
 
 //Задача о выборе заявок, улучшенный алгориттм
-public class Segment {
-    private int begin;
-    private int end;
-    public Segment(int begin, int end){
+//Улучшенный алгоритм(nlogn): нужно отсортировать n отрезков по правым концам. Для всех отрезком в в получннном порядке:
+//	если текущий отрезок не пересекает
+//		последний добавленный
+//		взять его в решение
+//	вернуть построенное решение.
+public class Segment implements Comparable<Segment>  {
+    private Integer begin;
+    private Integer end;
+
+    private Segment(int begin, int end){
         this.begin = begin;
         this.end = end;
+    }
+
+    @Override
+    public String toString() {
+        return "Segment{" +
+                "begin=" + begin +
+                ", end=" + end +
+                '}';
+    }
+
+    @Override
+    public int compareTo(Segment o) {
+            return Integer.compare(this.end , o.end);
     }
 
     public static int getEnd(Segment segment){
         return segment.end;
     }
-    public static Segment compareTo(Segment segment1, Segment segment2){
-        if(getEnd(segment1)>getEnd(segment2))return segment1;
-        else return segment2;
-    }
-    public static int sort(ArrayList<Segment> sort) {
-        if()
+    public static void run(){
 
-    }
-    public static void main(String[] args){
-        ArrayList<Segment> list = new ArrayList<>();
-        try(BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))){
-            int n = reader.read();
-            while (!(n == 0)) {
-                list.add(new Segment(reader.read(), reader.read()));
+        try(Scanner input = new Scanner(System.in)){
+
+            int n = input.nextInt();
+            ArrayList<Segment> segments = new ArrayList<>(n);
+            for(int i = 0; i<n ; i++){
+                int a = input.nextInt();
+                int b = input.nextInt();
+                segments.add(new Segment(a, b));
+            }
+            Collections.sort(segments);
+            int number = 0;
+            int j=0;
+            ArrayList<Integer> numbers = new ArrayList<>();
+           while(j<n){
+                if(segments.get(j).compareTo(segments.get(j + 1)) > 0){
+                    number++;
+                }
+                System.out.println(segments);
             }
         }
-        catch (Exception e){}
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args){
+        run();
     }
 }
